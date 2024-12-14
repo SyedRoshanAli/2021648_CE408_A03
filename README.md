@@ -57,7 +57,15 @@ First We Ensured the following are installed on my system:
    Output : "Run python file to get output"
 
 
+# Pulling Docker Image for Spark
 
-    
+   **Run your Python script:**
+   running command **"python EDA_netflix.py"**
+
+   Output:
+
+   <img width="1169" alt="Screenshot 2024-12-14 at 1 19 29 AM" src="https://github.com/user-attachments/assets/396664ab-b46c-4104-9217-3ea32e553b5d" />
+
+
 
 
