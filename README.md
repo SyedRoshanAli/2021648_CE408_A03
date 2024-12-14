@@ -109,19 +109,148 @@ Command:
 
 The output from the Spark job includes the following information:
 
-1. Total records: The total number of rows in the dataset (8809 in this case).
-2. A table showing the number of missing values in each column and the percentage of missing values relative to the total number of rows.
-3. A table summarizing various statistics for each column, including:
+## 1. Total records: The total number of rows in the dataset (8809 in this case).
+ |-- show_id: string (nullable = true)
+ |-- type: string (nullable = true)
+ |-- title: string (nullable = true)
+ |-- director: string (nullable = true)
+ |-- cast: string (nullable = true)
+ |-- country: string (nullable = true)
+ |-- date_added: string (nullable = true)
+ |-- release_year: string (nullable = true)
+ |-- rating: string (nullable = true)
+ |-- duration: string (nullable = true)
+ |-- listed_in: string (nullable = true)
+ |-- description: string (nullable = true)
+
+Total records: 8809
++-------+-------+--------------------+--------------------+--------------------+--------------------+------------------+------------+------+---------+--------------------+--------------------+
+|show_id|   type|               title|            director|                cast|             country|        date_added|release_year|rating| duration|           listed_in|         description|
++-------+-------+--------------------+--------------------+--------------------+--------------------+------------------+------------+------+---------+--------------------+--------------------+
+|     s1|  Movie|Dick Johnson Is Dead|     Kirsten Johnson|                null|       United States|September 25, 2021|        2020| PG-13|   90 min|       Documentaries|As her father nea...|
+|     s2|TV Show|       Blood & Water|                null|Ama Qamata, Khosi...|        South Africa|September 24, 2021|        2021| TV-MA|2 Seasons|International TV ...|After crossing pa...|
+|     s3|TV Show|           Ganglands|     Julien Leclercq|Sami Bouajila, Tr...|                null|September 24, 2021|        2021| TV-MA| 1 Season|Crime TV Shows, I...|To protect his fa...|
+|     s4|TV Show|Jailbirds New Orl...|                null|                null|                null|September 24, 2021|        2021| TV-MA| 1 Season|Docuseries, Reali...|Feuds, flirtation...|
+|     s5|TV Show|        Kota Factory|                null|Mayur More, Jiten...|               India|September 24, 2021|        2021| TV-MA|2 Seasons|International TV ...|In a city of coac...|
+|     s6|TV Show|       Midnight Mass|       Mike Flanagan|Kate Siegel, Zach...|                null|September 24, 2021|        2021| TV-MA| 1 Season|TV Dramas, TV Hor...|The arrival of a ...|
+|     s7|  Movie|My Little Pony: A...|Robert Cullen, Jo...|Vanessa Hudgens, ...|                null|September 24, 2021|        2021|    PG|   91 min|Children & Family...|Equestria's divid...|
+|     s8|  Movie|             Sankofa|        Haile Gerima|Kofi Ghanaba, Oya...|United States, Gh...|September 24, 2021|        1993| TV-MA|  125 min|Dramas, Independe...|On a photo shoot ...|
+|     s9|TV Show|The Great British...|     Andy Devonshire|Mel Giedroyc, Sue...|      United Kingdom|September 24, 2021|        2021| TV-14|9 Seasons|British TV Shows,...|A talented batch ...|
+|    s10|  Movie|        The Starling|      Theodore Melfi|Melissa McCarthy,...|       United States|September 24, 2021|        2021| PG-13|  104 min|    Comedies, Dramas|A woman adjusting...|
++-------+-------+--------------------+--------------------+--------------------+--------------------+------------------+------------+------+---------+--------------------+--------------------+
+only showing top 10 rows
+
+
+## 2. A table showing the number of missing values in each column and the percentage of missing values relative to the total number of rows.
+
+Missing values in each column:
++-------+----+-----+--------+----+-------+----------+------------+------+--------+---------+-----------+
+|show_id|type|title|director|cast|country|date_added|release_year|rating|duration|listed_in|description|
++-------+----+-----+--------+----+-------+----------+------------+------+--------+---------+-----------+
+|      0|   1|    2|    2636| 826|    832|        13|           2|     6|       5|        3|          3|
++-------+----+-----+--------+----+-------+----------+------------+------+--------+---------+-----------+
+
+Missing value percentages:
++-------+--------------------+--------------------+------------------+----------------+-----------------+------------------+--------------------+------------------+-------------------+------------------+------------------+
+|show_id|                type|               title|          director|            cast|          country|        date_added|        release_year|            rating|           duration|         listed_in|       description|
++-------+--------------------+--------------------+------------------+----------------+-----------------+------------------+--------------------+------------------+-------------------+------------------+------------------+
+|    0.0|0.011352026336701102|0.022704052673402204|29.923941423544104|9.37677375411511|9.444885912135316|0.1475763423771143|0.022704052673402204|0.0681121580202066|0.05676013168350551|0.0340560790101033|0.0340560790101033|
++-------+--------------------+--------------------+------------------+----------------+-----------------+------------------+--------------------+------------------+-------------------+------------------+------------------+
+
++-------+--------------------+-------------+---------------------------------+--------------------+--------------------+----------------+---------------+-----------------+-----------------+-------------+--------------------+--------------------+
+## 3. A table summarizing various statistics for each column, including:
 count: The number of non-null values.
 mean: The average value (applicable to numeric columns).
 stddev: The standard deviation (applicable to numeric columns).
 min: The minimum value.
 max: The maximum value.
-4. A list of all unique values found in the "type" column.
-5. A table showing the number of entries for each unique value in the "type" column.
-6. A table showing the top 10 countries with the most entries in the "country" column.
-7. A table showing a sample of the "release_year" distribution (top 10 rows).
-8. A sample of the data for US movies, showing the same columns as the original data sample.
+
++-------+--------------------+-------------+---------------------------------+--------------------+--------------------+----------------+---------------+-----------------+-----------------+-------------+--------------------+--------------------+
+|summary|             show_id|         type|                            title|            director|                cast|         country|     date_added|     release_year|           rating|     duration|           listed_in|         description|
++-------+--------------------+-------------+---------------------------------+--------------------+--------------------+----------------+---------------+-----------------+-----------------+-------------+--------------------+--------------------+
+|  count|                8809|         8808|                             8807|                6173|                7983|            7977|           8796|             8807|             8803|         8804|                8806|                8806|
+|   mean|                null|         null|               1124.7692307692307|                null|                null|          1944.0|           null|2014.189598270172|           2016.8|       1994.0|                null|  2014.6666666666667|
+| stddev|                null|         null|               1042.1800991068478|                null|                null|            null|           null|8.786618147271653|6.260990336999442|         null|                null|   4.509249752822894|
+|    min| and probably will."|        Movie|             "Behind ""The Cov...|"Sam ""Blitz"" Ba...|"Black Deniro, By...| Ama K. Abebrese| April 15, 2018|   Charles Rocket|    Adriane Lenox| Alan Cumming|          Akin Lewis|      Alicia Sánchez|
+|    max|                s999|William Wyler|최강전사 미니특공대 : 영웅의 탄생|        Şenol Sönmez|Ṣọpẹ́ Dìrísù, Wun...|        Zimbabwe|  United States|    United States|               UR|United States|United States, Un...|“Last Chance U” h...|
++-------+--------------------+-------------+---------------------------------+--------------------+--------------------+----------------+---------------+-----------------+-----------------+-------------+--------------------+--------------------+
+
+
+## 4. A list of all unique values found in the "type" column.
+
+Unique types:
++-------------+
+|         type|
++-------------+
+|         null|
+|      TV Show|
+|        Movie|
+|William Wyler|
++-------------+
+## 5. A table showing the number of entries for each unique value in the "type" column.
+
+Distribution by type:
++-------------+-----+
+|         type|count|
++-------------+-----+
+|         null|    1|
+|      TV Show| 2676|
+|        Movie| 6131|
+|William Wyler|    1|
++-------------+-----+
+
+## 6. A table showing the top 10 countries with the most entries in the "country" column.
+
+
+Top 10 countries with the most entries:
++--------------+-----+
+|       country|count|
++--------------+-----+
+| United States| 2805|
+|         India|  972|
+|          null|  832|
+|United Kingdom|  419|
+|         Japan|  245|
+|   South Korea|  199|
+|        Canada|  181|
+|         Spain|  145|
+|        France|  123|
+|        Mexico|  110|
++--------------+-----+
+only showing top 10 rows
+
+## 7. A table showing a sample of the "release_year" distribution (top 10 rows).
+
+Release year trend:
++-----------------+-----+
+|     release_year|count|
++-----------------+-----+
+|    United States|    1|
+|    June 12, 2021|    1|
+| January 15, 2021|    1|
+| January 13, 2021|    1|
+|December 15, 2020|    1|
+|  August 13, 2020|    1|
+|           40 min|    1|
+|             2021|  589|
+|             2020|  952|
+|             2019| 1026|
++-----------------+-----+
+only showing top 10 rows
+
+## 8. A sample of the data for US movies, showing the same columns as the original data sample.
+
+Sample of US Movies:
++-------+-----+--------------------+----------------+--------------------+-------------+------------------+------------+------+--------+--------------------+--------------------+
+|show_id| type|               title|        director|                cast|      country|        date_added|release_year|rating|duration|           listed_in|         description|
++-------+-----+--------------------+----------------+--------------------+-------------+------------------+------------+------+--------+--------------------+--------------------+
+|     s1|Movie|Dick Johnson Is Dead| Kirsten Johnson|                null|United States|September 25, 2021|        2020| PG-13|  90 min|       Documentaries|As her father nea...|
+|    s10|Movie|        The Starling|  Theodore Melfi|Melissa McCarthy,...|United States|September 24, 2021|        2021| PG-13| 104 min|    Comedies, Dramas|A woman adjusting...|
+|    s28|Movie|           Grown Ups|    Dennis Dugan|Adam Sandler, Kev...|United States|September 20, 2021|        2010| PG-13| 103 min|            Comedies|Mourning the loss...|
+|    s29|Movie|          Dark Skies|   Scott Stewart|Keri Russell, Jos...|United States|September 19, 2021|        2013| PG-13|  97 min|Horror Movies, Sc...|A family’s idylli...|
+|    s42|Movie|                Jaws|Steven Spielberg|Roy Scheider, Rob...|United States|September 16, 2021|        1975|    PG| 124 min|Action & Adventur...|When an insatiabl...|
++-------+-----+--------------------+----------------+--------------------+-------------+------------------+------------+------+--------+--------------------+--------------------+
+only showing top 5 rows
 
 
 
