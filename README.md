@@ -100,7 +100,7 @@ To transfer necessary files (EDA_netflix.py and netflix_titles.csv) into the con
 <img width="564" alt="Screenshot 2024-12-14 at 1 37 34 AM" src="https://github.com/user-attachments/assets/1f044f18-f604-4fbb-a0b6-d3d69ac52a40" />
 
 
-# Running the Script in Docker
+# Running the Script in Docker(Click Raw option to see the output correctly)
 
 To execute the EDA script, the following command was used by me:
 
