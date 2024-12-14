@@ -20,80 +20,44 @@ First We Ensured the following are installed on my system:
    python3 --version
    ```
    Output:
-   ```
-   Python 3.9.7
-   ```
+   ![6D1669AC-128A-4984-84B5-CB950D7675F4_4_5005_c](https://github.com/user-attachments/assets/f29f2c76-ddf6-4b2a-ae00-8d9a1b8f6bc9)
+
 
 ---
 
 ## Setting Up Apache Spark
 
-1. **Download and Extract Spark**:  
-   Place the extracted Spark folder on your Desktop or preferred location.
+   **Download and Extract Spark**:  
+   Placed the extracted Spark folder on my Desktop.
 
-2. **Set the SPARK_HOME environment variable**:  
-   Open your terminal and edit the `~/.zshrc` file:
-   ```bash
-   nano ~/.zshrc
-   ```
-   Add the following line:
-   ```bash
-   export SPARK_HOME=/Users/username/Desktop/Spark/spark-3.5.3-bin-hadoop3-scala2.13
-   export PATH=$SPARK_HOME/bin:$PATH
-   ```
-   Save and exit. Then, source the file to update the terminal environment:
-   ```bash
-   source ~/.zshrc
-   ```
-   Confirm the variable:
-   ```bash
-   echo $SPARK_HOME
-   ```
-   Expected Output:
-   ```
-   /Users/username/Desktop/Spark/spark-3.5.3-bin-hadoop3-scala2.13
-   ```
+   **Set the SPARK_HOME environment variable**:  
+      ![6D1669AC-128A-4984-84B5-CB950D7675F4_1_201_a](https://github.com/user-attachments/assets/ae263964-2b99-4ec2-8c3a-362d98fbe3c6)
 
-3. **Verify Spark Installation**:  
-   Run the following commands to check if Spark is correctly installed:
+   **Verify Spark Installation**:  
+   I Run the following command to check if Spark is correctly installed:
    - Spark Shell (Scala):
      ```bash
      spark-shell --version
      ```
      Output:
-     ```
-     Welcome to
-          ____              __
-         / __/__  ___ _____/ /__
-        _\ \/ _ \/ _ `/ __/  '_/
-       /__ / .__/\_,_/_/ /_/\_\   version 3.5.3
-          /_/
-     ```
+      ![6D1669AC-128A-4984-84B5-CB950D7675F4_1_201_a](https://github.com/user-attachments/assets/d88daf35-2165-45a4-8cdc-d7b47a675599)
 
+     
    - PySpark:
      ```bash
      pyspark
      ```
-     Expected Python REPL with Spark context.
+     <img width="1599" alt="Screenshot 2024-12-13 at 8 12 02 PM" src="https://github.com/user-attachments/assets/272b9391-23a8-44d0-b9f7-5f3f4b0d4f4c" />
 
----
-
-## Installing PySpark
-
-1. Install PySpark using pip:
-   ```bash
-   pip install pyspark
-   ```
-   Verify installation:
-   ```bash
-   python -c "import pyspark"
-   ```
-   If no errors are shown, PySpark is installed successfully.
-
-2. Run a PySpark example:
+   Run a PySpark example:
    Place the Python script (`EDA_netflix.py`) in the Spark folder and execute:
    ```bash
    python EDA_netflix.py
    ```
+   Output : "Run python file to get output"
+
+
+
+    
 
 
